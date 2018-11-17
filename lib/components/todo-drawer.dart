@@ -14,45 +14,61 @@ class _TodoDrawer extends State<TodoDrawer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Container(
-          color: Colors.black,
-          height: 160,
-          padding: EdgeInsets.all(10),
-          child: Row(
-            children: <Widget>[
-              CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 30,
-              ),
-              Expanded(
-                child: Text(' Jay',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20
-                  ),
-                ),
-              ),
-            ],
+        UserAccountsDrawerHeader(
+          currentAccountPicture: CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.white,
           ),
+          accountName: Text(
+            'Jay',
+            style: TextStyle(
+              fontSize: 20
+            ),
+          ),
+          accountEmail: null,
+          //decoration: DecorationImage,
         ),
-        Expanded(
-          child: ListView(
-            itemExtent: 36,
-            children: <Widget>[
-              ListTile(
-                contentPadding: EdgeInsets.all(10),
-                leading: Icon(Icons.list),
-                title: Text('Works'),
+        Column(
+          //itemExtent: 36,
+          children: <Widget>[
+            ExpansionTile(
+              title: Text('Lists',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black
+                )
               ),
-              ListTile(
-                contentPadding: EdgeInsets.all(10),
-                leading: Icon(Icons.list),
-                title: Text('Life is good'),
-              )
-            ],
-          )
+              initiallyExpanded: true,
+              children: <Widget>[
+                ListTile(
+                  leading: Icon(Icons.list),
+                  title: Text('Works'),
+                ),
+                ListTile(
+                  leading: Icon(Icons.list),
+                  title: Text('Life is good'),
+                )
+              ],
+            ),
+            
+          ],
         ),
-        Divider(),
+        Column(
+          children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Setting'),
+            ),
+            ListTile(
+              leading: Icon(Icons.contacts),
+              title: Text('About us'),
+            ),
+            ListTile(
+              leading: Icon(Icons.question_answer),
+              title: Text('FAQ'),
+            ),
+          ],
+        )
       ],
     );
   }

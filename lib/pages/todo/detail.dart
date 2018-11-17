@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Detail extends StatefulWidget {
-  Detail({Key key, this.title}) : super(key: key);
+class TodoDetail extends StatefulWidget {
+  TodoDetail({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _Detail createState() => _Detail();
+  _TodoDetail createState() => _TodoDetail();
 }
 
-class _Detail extends State<Detail> {
+class _TodoDetail extends State<TodoDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

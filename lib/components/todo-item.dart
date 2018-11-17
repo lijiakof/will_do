@@ -15,16 +15,7 @@ class _TodoItem extends State<TodoItem> {
     Widget build(BuildContext context){
       return Container(
         child: ListTile(
-          leading: Icon(Icons.star_border),
-          title: Text(widget.data['title'],
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              decoration: widget.data['done'] ? TextDecoration.lineThrough: TextDecoration.none
-            )
-          ),
-          subtitle: Text(widget.data['date']),
-          trailing: Checkbox(
+          leading: Checkbox(
             value: widget.data['done'],
             activeColor: Colors.black,
             onChanged: (bool) {
@@ -33,6 +24,15 @@ class _TodoItem extends State<TodoItem> {
               });
             },
           ),
+          title: Text(widget.data['title'],
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              decoration: widget.data['done'] ? TextDecoration.lineThrough: TextDecoration.none
+            )
+          ),
+          subtitle: Text(widget.data['date']),
+          trailing: Icon(Icons.star_border),
           onTap: () {
             Navigator.of(context).pushNamed('/detail');
           },

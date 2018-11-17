@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './pages/home.dart';
-import './pages/detail.dart';
+import './pages/todo/list.dart';
+import './pages/todo/detail.dart';
 
 void main() => runApp(WillDoApp());
 
@@ -15,10 +15,10 @@ class WillDoApp extends StatelessWidget {
         primaryColor: Colors.black,
         primaryColorBrightness: Brightness.dark,
       ),
-      home: Home(title: 'Will Do'),
+      home: TodoList(title: 'Will Do'),
       routes: <String, WidgetBuilder>{
-        '/home': (_) => Home(title: 'Will Do'),
-        '/detail': (_) => Detail(title: 'Todo'),
+        '/home': (_) => TodoList(title: 'Will Do'),
+        '/detail': (_) => TodoDetail(title: 'Todo'),
       },
     );
   }
