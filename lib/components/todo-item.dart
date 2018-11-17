@@ -33,6 +33,9 @@ class _TodoItem extends State<TodoItem> {
               });
             },
           ),
+          onTap: () {
+            Navigator.of(context).pushNamed('/detail');
+          },
         ),
         foregroundDecoration: BoxDecoration(
           border: BorderDirectional(
