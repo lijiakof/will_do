@@ -15,6 +15,7 @@ class _TodoItem extends State<TodoItem> {
     Widget build(BuildContext context){
       return Container(
         child: ListTile(
+          leading: Icon(Icons.star_border),
           title: Text(widget.data['title'],
             style: TextStyle(
               fontSize: 18,
@@ -23,7 +24,6 @@ class _TodoItem extends State<TodoItem> {
             )
           ),
           subtitle: Text(widget.data['date']),
-          leading: Icon(Icons.star_border),
           trailing: Checkbox(
             value: widget.data['done'],
             activeColor: Colors.black,
@@ -41,7 +41,7 @@ class _TodoItem extends State<TodoItem> {
           border: BorderDirectional(
             bottom: BorderSide(
               color: Colors.grey,
-              width: 0.5,
+              width: 0.4,
               style: BorderStyle.solid
             )
           )

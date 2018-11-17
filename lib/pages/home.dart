@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../components/todo-drawer.dart';
 import '../components/todo-box.dart';
 import '../components/todo-item.dart';
 
@@ -35,7 +36,11 @@ class _Home extends State<Home> {
       
     return Scaffold(
       appBar: AppBar(
+        //leading: Icon(Icons.menu),
         title: Text(widget.title)
+      ),
+      drawer: new Drawer(
+        child: TodoDrawer(),
       ),
       // floatingActionButton: FloatingActionButton(
       //   backgroundColor: Colors.black,
@@ -51,11 +56,15 @@ class _Home extends State<Home> {
               //itemExtent: 20.0,
               itemCount: data.length,
               itemBuilder: (context, i) {
+                // if (i.isOdd) return new Divider();
+                
+                // final index = i ~/ 2;
                 
                 Map<String, dynamic> todoData = data.length > i ? data[i]: {
                   'title': 'Nothing',
                   'date': ''
                 };
+
 
                 return TodoItem(data: todoData);
               },
