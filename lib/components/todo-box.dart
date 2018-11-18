@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TodoBox extends StatefulWidget {
+class TodoBox extends StatelessWidget {
   TodoBox({Key key}) : super(key: key);
-
-  @override
-  _TodoBox createState() => _TodoBox();
-}
-
-class _TodoBox extends State<TodoBox> {
 
   @override
   Widget build(BuildContext context){

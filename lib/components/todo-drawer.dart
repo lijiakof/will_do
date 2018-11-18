@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TodoDrawer extends StatefulWidget {
+class TodoDrawer extends StatelessWidget {
   TodoDrawer({Key key}) : super(key: key);
-
-  @override
-  _TodoDrawer createState() => _TodoDrawer();
-}
-
-class _TodoDrawer extends State<TodoDrawer> {
 
   @override
   Widget build(BuildContext context){ 
@@ -58,6 +52,9 @@ class _TodoDrawer extends State<TodoDrawer> {
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Setting'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/settings');
+              },
             ),
             ListTile(
               leading: Icon(Icons.contacts),
