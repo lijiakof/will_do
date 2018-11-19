@@ -16,12 +16,7 @@ class WillDoApp extends StatelessWidget {
         primaryColor: Colors.black,
         primaryColorBrightness: Brightness.dark,
       ),
-      home: TodoList(title: 'Will Do'),
-      routes: <String, WidgetBuilder>{
-        '/todo/list': (_) => TodoList(title: 'Will Do'),
-        '/todo/detail': (_) => TodoDetail(title: 'Todo'),
-        '/settings': (_) => Settings(),
-      },
+      home: TodoList(title: 'Will Do')
     );
   }
 }

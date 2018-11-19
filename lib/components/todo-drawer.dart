@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../routes.dart';
 
 class TodoDrawer extends StatelessWidget {
   TodoDrawer({Key key}) : super(key: key);
@@ -53,7 +54,7 @@ class TodoDrawer extends StatelessWidget {
               leading: Icon(Icons.settings),
               title: Text('Setting'),
               onTap: () {
-                Navigator.of(context).pushNamed('/settings');
+                Navigator.push(context, Routers.settings());
               },
             ),
             ListTile(

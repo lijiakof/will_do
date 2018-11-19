@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../routes.dart';
 
 class TodoItem extends StatefulWidget {
   TodoItem({Key key, this.data}) : super(key: key);
@@ -34,7 +35,8 @@ class _TodoItem extends State<TodoItem> {
         subtitle: Text(widget.data['date']),
         trailing: Icon(Icons.star_border),
         onTap: () {
-          Navigator.of(context).pushNamed('/todo/detail');
+          // Navigator.pushNamed(context, '/todo/detail');
+          Navigator.push(context, Routers.todoDetail(title:'dd'));
         },
       ),
       foregroundDecoration: BoxDecoration(
