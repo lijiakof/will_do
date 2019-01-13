@@ -4,9 +4,9 @@ import '../pages/todo/list.dart';
 
 class TodoRouters {
 
-  detail({String title}) {
+  detail({String title, Map<String, dynamic> model}) {
     return MaterialPageRoute(
-      builder: (context) => TodoDetail(title: title)
+      builder: (context) => TodoDetail(title: title, model: model,)
     );
   } 
 

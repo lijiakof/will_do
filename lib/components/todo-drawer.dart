@@ -66,6 +66,13 @@ class TodoDrawer extends StatelessWidget {
               leading: Icon(Icons.question_answer),
               title: Text('FAQ'),
             ),
+            // ListTile(
+            //   leading: Icon(Icons.widgets),
+            //   title: Text('Widgets'),
+            //   onTap: () {
+            //     Navigator.push(context, Routers.settings.demo());
+            //   },
+            // )
           ],
         )
       ],

@@ -32,8 +32,25 @@ class _TodoList extends State<TodoList> {
     'done': true
   }];
 
+  Future<Null> _refresh() async {
+    setState(() {
+      data.add({
+        'title':'Flutter2',
+        'date': '2018-12-13',
+        'done': false
+      });
+      data.add({
+        'title':'Flutter3',
+        'date': '2018-12-13',
+        'done': false
+      });
+    });
+    return Future.delayed(Duration(milliseconds: 500), () {});
+  }
+
   @override
   Widget build(BuildContext context) {
+    ScrollController controller = ScrollController();
       
     return Scaffold(
       appBar: AppBar(
@@ -58,12 +75,16 @@ class _TodoList extends State<TodoList> {
 
       //   },
       // ),
-      body: Center(
+      body: RefreshIndicator(
+        onRefresh: _refresh,
         child: Stack(
           children: <Widget>[
             ListView.builder(
               //itemExtent: 20.0,
               itemCount: data.length,
+              padding: EdgeInsets.only(bottom: 50),
+              physics: AlwaysScrollableScrollPhysics(),
+              controller: controller,
               itemBuilder: (context, i) {
                 
                 Map<String, dynamic> todoData = data.length > i ? data[i]: {
@@ -72,10 +93,13 @@ class _TodoList extends State<TodoList> {
                 };
 
                 return Dismissible(
-                  key: Key(i.toString()),
+                  key: Key(todoData['title']),
                   //movementDuration: Duration.
+                  direction: DismissDirection.endToStart,
                   onDismissed: (direction) {
-                    
+                    setState(() {
+                      data.removeAt(i);
+                    });
                   },
                   background: new Container(
                     color: Colors.grey,
@@ -89,7 +113,7 @@ class _TodoList extends State<TodoList> {
                     alignment: Alignment(1, 0),
                     padding: EdgeInsets.only(right: 20),
                   ),
-                  child: TodoItem(data: todoData),
+                  child: TodoItem(model: todoData),
                 );
               },
             ),
@@ -97,7 +121,24 @@ class _TodoList extends State<TodoList> {
               bottom: 0,
               left: 0,
               right: 0,
-              child: TodoBox(),
+              child: TodoBox(
+                onInsert: (txt) {
+                  print(DateTime.now());
+                  //DateTime(2018, 10, 10);
+                  setState(() {
+                    data.add({
+                      'title': txt,
+                      'date': '2018-12-12',
+                      'done': false
+                    });   
+                  });
+                  controller.animateTo(
+                    controller.position.maxScrollExtent,
+                    curve: Curves.easeInOut, 
+                    duration: Duration(milliseconds: 300)
+                  );
+                },
+              ),
             ),
           ],
         ),
